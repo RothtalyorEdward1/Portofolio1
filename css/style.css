@@ -1,0 +1,328 @@
+/* =========================================
+   1. VARIABLES & GLOBAL STYLES
+   ========================================= */
+:root {
+  --bg-dark: #0b0f19;
+  --bg-darker: #060911;
+  --bg-card: #131b2e;
+  --accent-primary: #38bdf8;
+  --accent-secondary: #818cf8;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.08);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  line-height: 1.7;
+}
+
+.font-monospace {
+  font-family: "Fira Code", monospace;
+}
+
+/* =========================================
+   2. TYPOGRAPHY & COLOR UTILITIES
+   ========================================= */
+.fw-extrabold {
+  font-weight: 800;
+}
+
+.text-accent {
+  color: var(--accent-primary) !important;
+}
+
+.text-light-muted {
+  color: var(--text-muted);
+}
+
+.text-purple {
+  color: #a855f7;
+}
+
+.bg-accent-soft {
+  background-color: var(--accent-soft);
+  border: 1px solid rgba(56, 189, 248, 0.25);
+}
+
+.border-accent {
+  border-color: var(--accent-primary) !important;
+}
+
+.section-darker {
+  background-color: var(--bg-darker);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.section-title {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 50%;
+  height: 3px;
+  margin: 0.5rem auto 0;
+  background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+  border-radius: 2px;
+}
+
+/* =========================================
+   3. NAVBAR
+   ========================================= */
+.custom-navbar {
+  background-color: rgba(11, 15, 25, 0.75);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s ease;
+  padding: 1rem 0;
+}
+
+.custom-navbar.scrolled {
+  background-color: rgba(6, 9, 17, 0.95);
+  border-bottom: 1px solid var(--border-color);
+  padding: 0.75rem 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+.navbar-brand {
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+}
+
+.navbar-brand .text-accent:first-child::before {
+  content: "<";
+}
+
+.navbar-brand .text-accent:last-child::after {
+  content: "/>";
+}
+
+.nav-link {
+  color: var(--text-muted) !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: color 0.25s ease;
+  position: relative;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-primary) !important;
+}
+
+/* =========================================
+   4. HERO SECTION & BUTTONS
+   ========================================= */
+.hero-section {
+  padding-top: 6rem;
+  background: radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.08), transparent 45%),
+              radial-gradient(circle at 15% 80%, rgba(129, 140, 248, 0.08), transparent 45%);
+}
+
+#typing-role::after {
+  content: "|";
+  color: var(--accent-primary);
+  animation: blinkCursor 0.8s infinite;
+  margin-left: 2px;
+}
+
+@keyframes blinkCursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.btn-accent {
+  background: linear-gradient(135deg, var(--accent-primary), #0284c7);
+  color: #060911;
+  font-weight: 700;
+  border: none;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn-accent:hover {
+  color: #060911;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(56, 189, 248, 0.35);
+}
+
+.btn-outline-accent {
+  color: var(--accent-primary);
+  border: 1px solid var(--accent-primary);
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-outline-accent:hover {
+  background-color: var(--accent-primary);
+  color: #060911;
+}
+
+.profile-wrapper {
+  position: relative;
+  max-width: 340px;
+}
+
+.profile-wrapper::before {
+  content: "";
+  position: absolute;
+  inset: -6px;
+  border-radius: 1.25rem;
+  background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+  z-index: 0;
+  opacity: 0.7;
+  filter: blur(8px);
+}
+
+.profile-img {
+  position: relative;
+  z-index: 1;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.35s ease;
+}
+
+.profile-wrapper:hover .profile-img {
+  transform: scale(1.02);
+}
+
+/* =========================================
+   5. CARDS & SKILLS
+   ========================================= */
+.custom-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.custom-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(56, 189, 248, 0.3);
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  padding: 0.45rem 0.9rem;
+  border-radius: 50px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-main);
+  transition: all 0.25s ease;
+}
+
+.skill-pill:hover {
+  background-color: var(--accent-soft);
+  border-color: var(--accent-primary);
+  transform: translateY(-2px);
+}
+
+/* =========================================
+   6. PROJECT CARDS
+   ========================================= */
+.project-card {
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(56, 189, 248, 0.35) !important;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.45);
+}
+
+.project-thumb {
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--border-color);
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-thumb {
+  transform: scale(1.03);
+}
+
+/* =========================================
+   7. TIMELINE (PERJALANAN / PENDIDIKAN)
+   ========================================= */
+.timeline-box {
+  position: relative;
+}
+
+.timeline-item {
+  padding-left: 0.75rem;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -2.05rem;
+  top: 0.35rem;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--bg-dark);
+  border: 3px solid var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-primary);
+}
+
+/* =========================================
+   8. FOOTER & SOCIAL LINKS
+   ========================================= */
+footer {
+  background-color: var(--bg-dark);
+}
+
+.social-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  font-size: 1.2rem;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.social-link:hover {
+  background-color: var(--accent-primary);
+  color: #060911;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(56, 189, 248, 0.35);
+}
+
+/* =========================================
+   9. SCROLL REVEAL ANIMATION CLASS
+   ========================================= */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
